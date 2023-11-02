@@ -1,20 +1,11 @@
 public class Main {
+    static int myMethod(int x){return x;}
+    static int myMethod(int x, int y){return x + y;}
     public static void main(String[] args) {
-//----------🌍(Parameters and Arguments)🌍--------------------------
-        int resultInMain = myMultiplicationMethod(10,3);
-        System.out.println(resultInMain);
-    }
-    // I want to create a function to say hello to my users
-    static void sayHello(String userName){
-        System.out.println("Hello " + userName);
-    }
-    // This function is going to show user information
-    static void showUserInformation(String userName,int age, int weight){
-        System.out.println("User name is " + userName + " and user age is " + age + " and user weight is " + weight);
-    }
-    // This function is going to calculate the multiplication of to decimal numbers
-    static int myMultiplicationMethod(int a , int b){
-        int result = a * b;
-        return result;
+//----------🌍(Method Overloading)🌍--------------------------
+        // function -> Method -> function same name -> Different functionality based on the inputs
+        int result1 = myMethod(10);
+        int result2 = myMethod(10,5);
+        System.out.println(result2);
     }
 }
