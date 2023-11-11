@@ -1,20 +1,17 @@
-//-----------💪(Java Class Attributes)💪-----------------
+//-----------💪(Java Class Methods)💪-----------------
  public class Main {
-    int x = 150;
-    int y = 200;
-    String myName = "Taha";
-    String myCity = "Ahvaz";
+    // This is a static method
+    static void myStaticFunction(){
+        System.out.println("This is Static one");
+    }
+    // This is a public Method!
+    public void myPublicFunction(){
+        System.out.println("This is a public one");
+    }
     public static void main(String[] args){
-        Main myFirstObject =  new Main();
-        Main mySecoundObject = new Main();
-
-        myFirstObject.x = 205;
-        myFirstObject.y = 100;
-
-        mySecoundObject.x  = 1;
-        mySecoundObject.y = 2;
-
-        System.out.println(myFirstObject.x + myFirstObject.y);
-        System.out.println(mySecoundObject.y + mySecoundObject.x);
+        // Let's create the Object from the class
+        Main myObj = new Main();
+        myStaticFunction();
+        myObj.myPublicFunction();
     }
 }
