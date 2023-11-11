@@ -1,9 +1,13 @@
-//-----------💪(Java Class Methods)💪-----------------
+//-----------💪(Java Constructors - Part1 )💪-----------------
 public class Main {
-    public void gas(){
-        System.out.println("The car is going fast!");
+    // Constructor -> Special Method
+    // Whenever we create an Object
+    int x;
+    public Main(){
+        x = 12;
     }
-    public void maxSpeed(int maxSpeed){
-        System.out.println("Max speed is: " + maxSpeed);
+    public static void main(String[] args){
+        Main myObject = new Main();
+        System.out.println(myObject.x);
     }
 }
