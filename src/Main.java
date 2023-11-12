@@ -1,12 +1,15 @@
-//---------💪(Java Encapsulation)💪---------------------------
+//---------💪(JAVA Built-in Packages)💪---------------------------
+import java.util.Scanner;
 public class Main {
-    // Private -> Setter , Getter
-
     public static void main(String[] args){
-        Person personObject = new Person();
-        personObject.setName("Taha");
-        System.out.println(personObject.getName());
+        Scanner myScannerObject = new Scanner(System.in);
+        System.out.println("------------------");
+        System.out.println("Enter your name: ");
+        System.out.println("------------------");
+        String userName = myScannerObject.nextLine();
+        System.out.println("User name is: " + userName);
     }
+
 }
 
 
