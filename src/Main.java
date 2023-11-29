@@ -1,22 +1,23 @@
-//---------------💪Java Inner Classes💪-----------------------
-class OuterClass{
-    int x = 10;
-     class InnerClass{
-        int y = 8;
-        public int myOuterClassReturner(){
-            return x;
-        }
+//---------------💪Java Abstraction💪-----------------------
+// This is a super-class include all animals
+abstract class Animal {
+    public abstract void animalSound();
+    public void sleep(){
+        System.out.println(
+                "Zzz"
+        );
+    }
+}
+class Pig extends Animal {
+    @Override
+    public void animalSound(){
+        System.out.println("wee wee");
     }
 }
 public class Main {
     public static void main(String[] args){
-//        OuterClass myOuterClass = new OuterClass();
-//        OuterClass.InnerClass myInnerClass = new OuterClass.InnerClass();
-//        System.out.println(myInnerClass.y + myOuterClass.x );
-        OuterClass outerclass = new OuterClass();
-        OuterClass.InnerClass myInnerClass = outerclass.new InnerClass();
-        int result = myInnerClass.myOuterClassReturner();
-        System.out.println(result);
+        Pig myPigObject = new Pig();
+        myPigObject.animalSound();
     }
 }
 
