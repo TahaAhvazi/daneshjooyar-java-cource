@@ -1,34 +1,50 @@
-//---------------💪Java Interface💪-----------------------
-// abstraction -> interface
-// Let's create our interface
-interface Thing {
-    public void callMe();
+import java.util.Scanner;
+
+//---------------💪Java Enums💪-----------------------
+// Enums are some special classes -> Final
+// How to create an Enum ? -> enum
+enum Level {
+    LOW,
+    MEDIUM,
+    HIGH
 }
-interface Animal {
-    public void animalSound();
-    public void run();
-}
-// Let's use the animal interface for our Pig class
-class Pig implements Thing , Animal {
-    @Override
-    public void callMe() {
-        System.out.println("Called");
-    }
-    @Override
-    public void animalSound(){
-        System.out.println("wee wee");
-    }
-    @Override
-    public void run(){
-        System.out.println("the animal is running");
-    }
-}
+
 public class Main {
-    public static void main(String[] args){
-        Pig pigObject = new Pig();
-        pigObject.animalSound();
-        pigObject.run();
-        pigObject.callMe();
+    public static void main(String[] args) {
+//        Level myValue = Level.LOW;
+//        System.out.println(myValue);
+
+        while (true) {
+            System.out.println("-----------");
+            System.out.println("Enter your level:");
+            System.out.print("-----------\n");
+            Scanner myScanner = new Scanner(System.in);
+            Level value = Level.HIGH;
+            String userInput = myScanner.nextLine();
+
+            if (userInput.equals("low") || userInput.equals("Low")) {
+                value = Level.LOW;
+            } else if (userInput.equals("medium") || userInput.equals("Medium")) {
+                value = Level.MEDIUM;
+            } else if(userInput.equals("high") || userInput.equals("High")){
+               value = Level.HIGH;
+            } else if (userInput.equals("exsit") || userInput.equals("Exsit")) {
+                break;
+            }else {
+                break;
+            }
+            switch (value) {
+                case LOW:
+                    System.out.println("Low level");
+                    break;
+                case MEDIUM:
+                    System.out.println("Medium level");
+                    break;
+                case HIGH:
+                    System.out.println("High level");
+                    break;
+            }
+        }
     }
 }
 
