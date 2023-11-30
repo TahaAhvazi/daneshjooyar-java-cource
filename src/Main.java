@@ -1,19 +1,15 @@
-import java.util.Scanner;
-
-//------------💪Java User Input (Scanner)💪-----------------------
+//------------💪 Java Date and Time 💪-----------------------
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 public class Main {
     public static void main(String[] args) {
-        Scanner scannerObject = new Scanner(System.in);
-        System.out.println("Enter your name:");
-        String username = scannerObject.nextLine();
-        System.out.println("Enter your age:");
-        int userAge = scannerObject.nextInt();
-        System.out.println("Enter your height:");
-        double userHeight = scannerObject.nextDouble();
-        System.out.println("Enter your height:");
-        double userHeight1 = scannerObject.nextByte();
-        System.out.println(username);
-        System.out.println(userAge);
+        LocalDateTime localDateTimeObject = LocalDateTime.now();
+        System.out.println("Before formatting: "  + localDateTimeObject);
+        DateTimeFormatter dataTimeFormatterObject = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
+        String afterFormatting = localDateTimeObject.format(dataTimeFormatterObject);
+        System.out.println("After formatting: " + afterFormatting);
     }
 }
 
