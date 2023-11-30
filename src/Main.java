@@ -1,18 +1,21 @@
-//------------💪 Java ArrayList - part3  💪-----------------------
-// Built-in  package - > Java - > Collections
-import java.util.Collections;
-import java.util.ArrayList;
+//------------💪 Java LinkedList 💪-----------------------
+ //   [10 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17]
+// LinkedList -> package java -> java.util
+// ArrayList vs LinkedList ???
+import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Integer> myShuffledNumbers = new ArrayList<Integer>();
-        myShuffledNumbers.add(33);
-        myShuffledNumbers.add(100);
-        myShuffledNumbers.add(20);
-        myShuffledNumbers.add(99);
-        myShuffledNumbers.add(5);
-        System.out.println("Unsorted array is: "+myShuffledNumbers);
-        Collections.sort(myShuffledNumbers);
-        System.out.println("Sorted array is: " + myShuffledNumbers );
+        LinkedList<String> cars = new LinkedList<String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("Mazda");
+        cars.addFirst("Toyota");
+        cars.addLast("Saipa");
+        cars.removeFirst();
+        cars.removeLast();
+        System.out.println(cars.getLast());
+        System.out.println(cars);
     }
 }
 
