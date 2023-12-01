@@ -1,19 +1,20 @@
-//-------------💪Java Regular Expressions -----------------------
-// Pattern
-// Matcher
-// PatternSyntaxException
-// Java package -> java.util.regex
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
+//-------------💪Java File Handling 💪 -----------------------
+// File -> class -> Java package : io
+// createNewFile() -> Create file using java
+import java.io.IOException;
+import java.io.File;
 public class Main {
     public static void main(String[] args) {
-        Pattern patternObject = Pattern.compile("daneshjooyar", Pattern.CASE_INSENSITIVE);
-        Matcher matcherObject = patternObject.matcher("learn with daneshjoOyar");
-        boolean matchFound = matcherObject.find();
-        if (matchFound){
-            System.out.println("Daneshjooyar is exsists- found");
-        }else {
-            System.out.println("Daneshjooyar is not exsist - not found");
+        try {
+            File fileObj = new File("test.txt");
+            if (fileObj.createNewFile()){
+                System.out.println("File is created: " + fileObj.getName());
+            }else {
+                System.out.println("File is already exist");
+            }
+        }catch (IOException ioException){
+            System.out.println("An error occurred");
+            ioException.printStackTrace();
         }
     }
 }
