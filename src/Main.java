@@ -6,7 +6,7 @@ public class Main {
         try {
             File fileObj = new File("test.txt");
             if (fileObj.createNewFile()){
-                System.out.println("File is created: " + fileObj.getName());
+                System.out.println("F: " + fileObj.getName());
             }else {
                 System.out.println("File is already exist");
             }
