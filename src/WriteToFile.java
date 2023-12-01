@@ -6,10 +6,9 @@ public class WriteToFile {
             FileWriter fileWriteerObj = new FileWriter("test.txt");
             fileWriteerObj.write("Hello world we are learning java programming language from daneshjooyar website");
             fileWriteerObj.close();
-            System.out.println("Successfully wrote to the " + "test.txt" );
+            System.out.println("Successfully wrote to the " + fileWriteerObj );
         }catch (IOException e){
-            System.out.println("An error occurred");
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 }

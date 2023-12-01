@@ -1,6 +1,4 @@
-//-------------💪Java File Handling 💪 -----------------------
-// File -> class -> Java package : io
-// createNewFile() -> Create file using java
+//-------------💪Java File Handling part 2 💪 -----------------------
 import java.io.IOException;
 import java.io.File;
 public class Main {
