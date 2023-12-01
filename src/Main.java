@@ -1,19 +1,18 @@
-//-------------💪Java File Handling part 2 💪 -----------------------
-import java.io.IOException;
-import java.io.File;
+//-------------💡 Solving problems 💡 -----------------------
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        try {
-            File fileObj = new File("test.txt");
-            if (fileObj.createNewFile()){
-                System.out.println("F: " + fileObj.getName());
-            }else {
-                System.out.println("File is already exist");
-            }
-        }catch (IOException ioException){
-            System.out.println("An error occurred");
-            ioException.printStackTrace();
-        }
+        int number1,number2,result;
+        Scanner myScannerObject = new Scanner(System.in);
+        System.out.println("Enter the first number:");
+        number1 = myScannerObject.nextInt();
+        System.out.println("Enter the secound number: ");
+        number2 = myScannerObject.nextInt();
+
+        result = number2 * number1;
+        System.out.println("------------------");
+        System.out.println("---result:" + result + "-----");
+        System.out.println("------------------");
     }
 }
 
