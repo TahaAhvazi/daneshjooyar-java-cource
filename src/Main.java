@@ -1,21 +1,26 @@
-//------------💪 Java LinkedList 💪-----------------------
- //   [10 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17]
-// LinkedList -> package java -> java.util
-// ArrayList vs LinkedList ???
-import java.util.LinkedList;
+//------------💪 Java HashMap 💪-----------------------
+// Array list , Array -> index -> 2 -> 3 -> int
+// Hash map -> Key/Value -> e.g. String , int
+//package Java
+import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
-        LinkedList<String> cars = new LinkedList<String>();
-        cars.add("Volvo");
-        cars.add("BMW");
-        cars.add("Ford");
-        cars.add("Mazda");
-        cars.addFirst("Toyota");
-        cars.addLast("Saipa");
-        cars.removeFirst();
-        cars.removeLast();
-        System.out.println(cars.getLast());
-        System.out.println(cars);
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        capitalCities.put("England", "London");
+        capitalCities.put("Germany", "Berlin");
+        capitalCities.put("Norway", "Oslo");
+        capitalCities.put("Iran", "Tehran");
+//        capitalCities.remove("Norway");
+//        capitalCities.clear();
+//        System.out.println(capitalCities.size());
+        System.out.println(capitalCities);
+        for (String i : capitalCities.keySet()){
+            System.out.println(i);
+        }
+        System.out.println("-------------------");
+        for (String i : capitalCities.values()){
+            System.out.println(i);
+        }
     }
 }
 
