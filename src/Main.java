@@ -1,29 +1,27 @@
-//-------------💡Solving problems - Text reversal💡-----------------------
+//-----------💡Solving problems -LeapYearChecker💡------------------
 import java.util.Scanner;
 public class Main {
-    private static String reverseString(String str){
-        // word -> w, o , r ,d
-        // drow <- d, r , o ,w
-        char[] charArray = str.toCharArray();
-        // Let's reverse the string we receive from the user
-        int start = 0;
-        int end =  str.length() - 1;
-        while (start < end){
-            char temp = charArray[start]; // w - o
-            charArray[start] = charArray[end]; // d r  o  w
-            charArray[end] = temp; //
-            start ++; // 1 // 2
-            end --; // 2 // 1
-        }
-        return new String(charArray);
+    // This function check if the year that user entered is a Leap year or not
+    private static boolean isLeapYear(int year){
+        // Leap year condition
+        // 1. If the year is evenly divisible by 4
+        // 2. If the year is not divisible by 100, Except when it is divisible by 400
+        return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
     }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        //Let's receive the user input (Word)
-        System.out.println("Enter the word or sentence to reverse: ");
-        String input = scanner.nextLine();
-        String reversedText = reverseString(input);
-        System.out.println("The reversed String of " + input + " is " + reversedText );
+    public static void main(String[] args){
+        // Create an Object from the Scanner class
+        Scanner myScannerObject = new Scanner(System.in);
+        // Receive the year from the user
+        System.out.println("Enter the Year please: ");
+        int Year = myScannerObject.nextInt();
+        // Check if the year is  a leap year using the isLeapYear function
+        if (isLeapYear(Year)){
+            System.out.println("✅ The Year: " + Year + " is a Leap year  ✅");
+        }else {
+            System.out.println("🛑 The year: " + Year + " is not a leap year 🛑");
+        }
+        // Preventing memory leak by closing the Input stream from the scanner
+        myScannerObject.close();
     }
 }
 
