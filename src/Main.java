@@ -1,30 +1,41 @@
-//----💡Solving problems - FibonacciSequenceGenerator💡------------------
+//--------💡Solving problems - BMI Calculator 💡------------------
+
 import java.util.Scanner;
+
 public class Main {
-    // Let's create the function for fibonacci sequence
-    private static void generateAndPrintFibonacciSequence(int numberOfTerms){
-        int firstTerm = 0;
-        int secoundTerm = 1;
-        for (int i = 0; i< numberOfTerms; i++){
-            System.out.println(firstTerm + " ");
-            int nextTerm = firstTerm + secoundTerm;
-            firstTerm = secoundTerm;
-            secoundTerm = nextTerm;
+    // go and create a java application to calculate bmi of the users
+    // Let's create a function to calculate the BMI
+    private static double calculateBMI(double height, double weight) {
+        double BMI;
+        BMI = weight / (height * height);
+        return BMI;
+
+    }
+    //Let's create a function to detect the bmi status of users
+    private static void detectStatusBMI(double bmi){
+        System.out.println("BMI Category💡: ");
+        if (bmi < 18.6){
+            System.out.println("UnderWeight🛑🛑");
+        } else if (bmi < 25) {
+            System.out.println("Normal Weight🟢");
+        } else if (bmi < 30) {
+            System.out.println("OverWeight🛑");
+        }else {
+           System.out.println("Obese🛑🛑");
         }
     }
     public static void main(String[] args) {
-        // 1+2+3+4+5
-        // 0+ 1 + 1 + 2 + 3 + 5 + 8 + 13 + ...
-        // 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 +34 + 55 + 89
-        // Let's receive the input from the user
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the number of terms please🔥✌️:");
-        int numberOfTerms =  scanner.nextInt();
-        //Let's use the function to generate the fibonacci sequence
-        System.out.println("Fibonacci sequence up to: " + numberOfTerms + "💡");
-        generateAndPrintFibonacciSequence(numberOfTerms);
-        // Prevent from  memory leak
-        scanner.close();
+        //Receive the data as input from user
+        System.out.println("Enter your weight in Kilograms🙌: ");
+        double weight = scanner.nextDouble();
+        System.out.println("Enter your height in Meters🙌: ");
+        double height = scanner.nextDouble();
+        // Let's calculate the BMI
+        double bmi = calculateBMI(height, weight);
+        // Display the result:
+        System.out.println("Your bmi is🔥: " + bmi);
+        detectStatusBMI(bmi);
     }
 }
 
