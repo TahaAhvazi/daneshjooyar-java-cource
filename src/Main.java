@@ -1,43 +1,29 @@
-//-----------💡Solving problems - Number Guess 💡------------------
-import java.util.Random;
+//----💡Solving problems - FibonacciSequenceGenerator💡------------------
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        // define our range
-        int lowerBound = 1;
-        int upperBound = 100;
-        // Let's select number in range 0 to 100 randomly
-        int secreteNumber = random.nextInt(upperBound - lowerBound);
-        // define a variable of number of attempts
-        int attempts = 0;
-        // define a bool for check if the user guess the number right or not!
-        boolean hasGuessedCorrectly = false;
-        // Let's create our menu for this application:
-        System.out.println("-------------------------");
-        System.out.println("🌍WELCOME TO THE GAME🌍");
-        System.out.println("I have selected a number in range\n " + lowerBound + " and " + upperBound + " \nTry to guess this number and then you will win 🙌🎊");
-        System.out.println("-------------------------");
-
-        // Check if the user guess the secret number right or not!
-        while (attempts < 11){
-            System.out.println("Enter your guess🔥:" + "(" + "Chances: " + attempts + "/10" + ")" );
-            int userGuess = scanner.nextInt();
-            attempts++;
-            // Validate if the number is right , Greater or lower
-            if (userGuess < secreteNumber){
-                System.out.println("Too low🛑, !Try Again!");
-            } else if (userGuess > secreteNumber) {
-                System.out.println("Too high🟢, !Try Again!");
-            }else if (userGuess == secreteNumber){
-                System.out.println("🎊Congratulations🎊 You guessed the number!!!");
-                hasGuessedCorrectly = true;
-            }else {
-                System.out.println("🐉GAME OVER🐉");
-            }
+    // Let's create the function for fibonacci sequence
+    private static void generateAndPrintFibonacciSequence(int numberOfTerms){
+        int firstTerm = 0;
+        int secoundTerm = 1;
+        for (int i = 0; i< numberOfTerms; i++){
+            System.out.println(firstTerm + " ");
+            int nextTerm = firstTerm + secoundTerm;
+            firstTerm = secoundTerm;
+            secoundTerm = nextTerm;
         }
-        // Prevent from memory leak
+    }
+    public static void main(String[] args) {
+        // 1+2+3+4+5
+        // 0+ 1 + 1 + 2 + 3 + 5 + 8 + 13 + ...
+        // 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 +34 + 55 + 89
+        // Let's receive the input from the user
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of terms please🔥✌️:");
+        int numberOfTerms =  scanner.nextInt();
+        //Let's use the function to generate the fibonacci sequence
+        System.out.println("Fibonacci sequence up to: " + numberOfTerms + "💡");
+        generateAndPrintFibonacciSequence(numberOfTerms);
+        // Prevent from  memory leak
         scanner.close();
     }
 }
