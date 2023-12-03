@@ -1,65 +1,44 @@
-//------💡Solving problems-HangMan💡------------------
+//------💡Problem Solving - Rock paper Scissor💡------------------
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        // Let's create an object from the classes we have imported.
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        // Let's crete a list of words that user want to guess
-        String[] selectedWords = {"Java", "programing", "computer", "developer", "learning"};
-        // Select a random word from the array list
-        String selectedWord = selectedWords[random.nextInt(selectedWords.length)];
-        // Let's initialize variables
-        char[] guessedLetter = new char[selectedWord.length()];
-        for (int i = 0; i < guessedLetter.length; i++) {
-            guessedLetter[i] = '-';
-        }
-        // Limit the user guess
-        int attempts = 0;
-        int maxAttempts = 12;
-
-        // Let's create the menu for the app:
-        System.out.println("🔥WELCOME TO HANGMMAN🔥");
-        System.out.println("Try to guess the word by suggesting letters✌️");
-        // Main game loop
-        while (true) {
-            // Display current state of the word and prompt for letter
-            System.out.println("Current word: " + new String(guessedLetter));
-            System.out.println("Enter a letter: 🙌");
-            char guessedLetter1 = scanner.next().charAt(0);
-            attempts++;
-            // check if the guessed letter is in the word
-            boolean letterGuessCorrectly = false;
-            for (int i = 0; i < selectedWord.length(); i++) {
-                if (selectedWord.charAt(i) == guessedLetter1) {
-                    guessedLetter[i] = guessedLetter1;
-                    letterGuessCorrectly = true;
-                }
-                // Display the feedback on the guessed letters
-                if (letterGuessCorrectly){
-                    System.out.println("Good Guess");
-                }else {
-                    System.out.println("Incorrect guess");
-                }
-                // Check if  the user reaches the limit
-                if (attempts >= maxAttempts){
-                    System.out.println("Sorry you have reached you maximum attempts");
-                    break;
-                }
-                //Check if the word is completely guessed
-                if (new String(guessedLetter).equals(selectedWord)) {
-                    System.out.println("Congratulation🎊 You guessed the word right");
-                    System.out.println("Total Attempts: " + attempts);
-                    break;
-                }
-            }
-            System.out.println();
+    //Let's create a function to determine who is the winner
+    private static void determineWinner(String userMove, String computerMove) {
+        if (userMove.equals(computerMove)) {
+            System.out.println("It's a tie!!!🙌");
+        } else if (userMove.equals("rock") && computerMove.equals("scissors") ||
+                userMove.equals("paper") && computerMove.equals("rock") ||
+                userMove.equals("scissors") && computerMove.equals("paper")
+        ) {
+            System.out.println("Congratulations🎊You win!");
+        }else {
+            System.out.println("Sorry🛑 you lost the game🛑");
         }
     }
+
+    public static void main(String[] args) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        // Create a menu for our application
+        System.out.println("Welcome to the Rock paper Scissor game 🎊🔥");
+        System.out.println("Enter your move (Rock, Paper, Scissor)");
+        //Let's receive the user input from the terminal
+        String userMove = scanner.nextLine().toLowerCase();
+        // validate user input
+        if (!userMove.equals("rock") && !userMove.equals("paper") && !userMove.equals("scissor")) {
+            System.out.println("🛑Invalid Move🛑");
+            scanner.close();
+            return;
+        }
+        // Generate a random move for our computer
+        String[] validMoves = {"rock", "paper", "scissor"};
+        String computerMove = validMoves[random.nextInt(validMoves.length)];
+        System.out.println("Computer move is: " + computerMove);
+        // Determine the winner
+        determineWinner(userMove, computerMove);
+        // Prevent from memory leak
+        scanner.close();
+    }
 }
-
-
-
-
